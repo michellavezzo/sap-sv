@@ -1,11 +1,13 @@
-module top_tb();
+module top_tb(
+output[11:0] out
+);
 
-initial begin
-	$dumpfile("top_tb.vcd");
-	$dumpvars(0, top_tb);
-	rst = 1;
-	#1 rst = 0;
-end
+//initial begin
+//	$dumpfile("top_tb.vcd");
+//	$dumpvars(0, top_tb);
+//	rst = 1;
+//	#1 rst = 0;
+//end
 
 wire[4:0] bus_en = {pc_en, mem_en, ir_en, a_en, adder_en};
 reg[7:0] bus;
