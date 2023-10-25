@@ -1,0 +1,103 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/miche/OneDrive/Documentos/Quartus/SAP/simulation/qsim
+vcontroller
+Z1 !s110 1698202643
+!i10b 1
+!s100 3;o6[mbe:KFZ=IO31@Q_P2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IT_hh?z4kmViV]10i^DzP<2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1698202642
+Z4 8sap.vo
+Z5 Fsap.vo
+!i122 8
+L0 32 526
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z7 !s108 1698202643.000000
+Z8 !s107 sap.vo|
+Z9 !s90 -work|work|sap.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+vcontroller_vlg_vec_tst
+R1
+!i10b 1
+!s100 VfjG`3SZgD6SUc8`MK6gz0
+R2
+IYRZfKE_:Pi=gf10i;6aKY1
+R3
+R0
+w1698202641
+Z12 8Waveform.vwf.vt
+Z13 FWaveform.vwf.vt
+!i122 9
+L0 30 56
+R6
+r1
+!s85 0
+31
+R7
+Z14 !s107 Waveform.vwf.vt|
+Z15 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R10
+R11
+vtop_tb
+Z16 !s110 1698196613
+!i10b 1
+!s100 67dXNl:YV>fAcDe82WS3T2
+R2
+I6h?84_9mfW_oKA]1>@92c3
+R3
+R0
+w1698196610
+R4
+R5
+!i122 0
+L0 32 249
+R6
+r1
+!s85 0
+31
+Z17 !s108 1698196613.000000
+R8
+R9
+!i113 1
+R10
+R11
+vtop_tb_vlg_vec_tst
+R16
+!i10b 1
+!s100 6bUFXTjB`kZ0h7A;ikJZL0
+R2
+IPOhEK?Ebj`cmgYT`aXGS`0
+R3
+R0
+w1698196609
+R12
+R13
+!i122 1
+L0 30 16
+R6
+r1
+!s85 0
+31
+R17
+R14
+R15
+!i113 1
+R10
+R11

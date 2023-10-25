@@ -1,13 +1,13 @@
 module memory(
-    input clk,
-    input rst,
-    input load,
-    input[7:0] bus,
-    output[7:0] out
+    input logic clk,
+    input logic rst,
+    input logic load,
+    input logic [7:0] bus,
+    output logic [7:0] out
 );
 
-reg[3:0] mar;
-reg[7:0] ram[0:15];
+logic [3:0] mar;
+logic [7:0] ram[0:15];
 
 // Example inline initialization:
 initial begin
@@ -29,8 +29,7 @@ initial begin
     ram[15] = 8'h0F;
 end
 
-
-always @(posedge clk or posedge rst) begin
+always_ff @(posedge clk or posedge rst) begin
     if (rst) begin
         mar <= 4'b0;
     end else if (load) begin

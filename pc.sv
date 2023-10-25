@@ -1,20 +1,20 @@
 module pc(
-	input clk,
-	input rst,
-	input inc,
-	output[7:0] out
+	input logic clk,
+	input logic rst,
+	input logic inc,
+	output logic [7:0] out
 );
 
-reg[3:0] pc;
+logic [3:0] pc_value;  // Renamed from pc to pc_value for clarity
 
-always @(posedge clk, posedge rst) begin
+always_ff @(posedge clk or posedge rst) begin
 	if (rst) begin
-		pc <= 4'b0;
+		pc_value <= 4'b0;
 	end else if (inc) begin
-		pc <= pc + 1;
+		pc_value <= pc_value + 1;
 	end
 end
 
-assign out = pc;
+assign out = pc_value;
 
 endmodule

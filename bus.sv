@@ -1,18 +1,18 @@
 module bus(
-    input       ir_en,
-    input [7:0] ir_out,
-    input       adder_en,
-    input [7:0] adder_out,
-    input       a_en,
-    input [7:0] a_out,
-    input       mem_en,
-    input [7:0] mem_out,
-    input       pc_en,
-    input [7:0] pc_out,
-    output reg [7:0] bus
+    input logic       ir_en,
+    input logic [7:0] ir_out,
+    input logic       adder_en,
+    input logic [7:0] adder_out,
+    input logic       a_en,
+    input logic [7:0] a_out,
+    input logic       mem_en,
+    input logic [7:0] mem_out,
+    input logic       pc_en,
+    input logic [7:0] pc_out,
+    output logic [7:0] bus
 );
 
-always @(*) begin
+always_comb begin
     if (ir_en) begin
         bus = ir_out;
     end else if (adder_en) begin

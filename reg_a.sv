@@ -1,21 +1,21 @@
 module reg_a(
-	input clk,
-	input rst,
-	input load,
-	input[7:0] bus,
-	output[7:0] out
+	input logic clk,
+	input logic rst,
+	input logic load,
+	input logic [7:0] bus,
+	output logic [7:0] out
 );
 
-reg[7:0] reg_a;
+logic [7:0] reg_value_a;  // Renamed from reg_a to reg_value_a
 
-always @(posedge clk, posedge rst) begin
+always_ff @(posedge clk or posedge rst) begin
 	if (rst) begin
-		reg_a <= 8'b0;
+		reg_value_a <= 8'b0;
 	end else if (load) begin
-		reg_a <= bus;
+		reg_value_a <= bus;
 	end
 end
 
-assign out = reg_a;
+assign out = reg_value_a;
 
 endmodule

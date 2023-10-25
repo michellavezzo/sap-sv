@@ -1,18 +1,16 @@
-module top_tb(
-output[11:0] out
-);
+module top_tb;
 
-//initial begin
-//	$dumpfile("top_tb.vcd");
-//	$dumpvars(0, top_tb);
-//	rst = 1;
-//	#1 rst = 0;
-//end
+initial begin
+	$dumpfile("top_tb.vcd");
+	$dumpvars(0, top_tb);
+	rst = 1;
+	#1 rst = 0;
+end
 
-wire[4:0] bus_en = {pc_en, mem_en, ir_en, a_en, adder_en};
-reg[7:0] bus;
+logic [4:0] bus_en = {pc_en, mem_en, ir_en, a_en, adder_en};
+logic [7:0] bus;
 
-always @(*) begin
+always_comb begin
 	case (bus_en)
 		5'b00001: bus = adder_out;
 		5'b00010: bus = a_out;
@@ -23,39 +21,38 @@ always @(*) begin
 	endcase
 end
 
-reg clk_in = 0;
-integer i;
+logic clk_in = 0;
+int i;
 initial begin
 	for (i = 0; i < 128; i++) begin
 		#1 clk_in = ~clk_in;
 	end
 end
 
-wire clk;
-wire hlt;
-reg rst;
+logic clk;
+logic hlt;
+logic rst;
 
-clock clock(
+clock clock_inst(
 	.hlt(hlt),
 	.clk_in(clk_in),
 	.clk_out(clk)
 );
 
-wire pc_inc;
-wire pc_en;
-wire[7:0] pc_out;
-pc pc(
+logic pc_inc;
+logic pc_en;
+logic [7:0] pc_out;
+pc pc_inst(
 	.clk(clk),
 	.rst(rst),
 	.inc(pc_inc),
 	.out(pc_out)
 );
 
-
-wire mar_load;
-wire mem_en;
-wire[7:0] mem_out;
-memory mem(
+logic mar_load;
+logic mem_en;
+logic [7:0] mem_out;
+memory mem_inst(
 	.clk(clk),
 	.rst(rst),
 	.load(mar_load),
@@ -63,11 +60,10 @@ memory mem(
 	.out(mem_out)
 );
 
-
-wire a_load;
-wire a_en;
-wire[7:0] a_out;
-reg_a reg_a(
+logic a_load;
+logic a_en;
+logic [7:0] a_out;
+reg_a reg_a_inst(
 	.clk(clk),
 	.rst(rst),
 	.load(a_load),
@@ -75,10 +71,9 @@ reg_a reg_a(
 	.out(a_out)
 );
 
-
-wire b_load;
-wire[7:0] b_out;
-reg_b reg_b(
+logic b_load;
+logic [7:0] b_out;
+reg_b reg_b_inst(
 	.clk(clk),
 	.rst(rst),
 	.load(b_load),
@@ -86,22 +81,20 @@ reg_b reg_b(
 	.out(b_out)
 );
 
-
-wire adder_sub;
-wire adder_en;
-wire[7:0] adder_out;
-adder adder(
+logic adder_sub;
+logic adder_en;
+logic [7:0] adder_out;
+adder adder_inst(
 	.a(a_out),
 	.b(b_out),
 	.sub(adder_sub),
 	.out(adder_out)
 );
 
-
-wire ir_load;
-wire ir_en;
-wire[7:0] ir_out;
-ir ir(
+logic ir_load;
+logic ir_en;
+logic [7:0] ir_out;
+ir ir_inst(
 	.clk(clk),
 	.rst(rst),
 	.load(ir_load),
@@ -109,7 +102,7 @@ ir ir(
 	.out(ir_out)
 );
 
-controller controller(
+controller controller_inst(
 	.clk(clk),
 	.rst(rst),
 	.opcode(ir_out[7:4]),
