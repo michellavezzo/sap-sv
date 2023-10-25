@@ -1,14 +1,14 @@
 module bus(
-    input logic       ir_en,
-    input logic [7:0] ir_out,
-    input logic       adder_en,
-    input logic [7:0] adder_out,
-    input logic       a_en,
-    input logic [7:0] a_out,
-    input logic       mem_en,
-    input logic [7:0] mem_out,
-    input logic       pc_en,
-    input logic [7:0] pc_out,
+    input logic        ir_en,
+    output logic [7:0] ir_out,
+    input logic        adder_en,
+    output logic [7:0] adder_out,
+    input logic        a_en,
+    output logic [7:0] a_out,
+    input logic        mem_en,
+    output logic [7:0] mem_out,
+    input logic        pc_en,
+    output logic [7:0] pc_out,
     output logic [7:0] bus
 );
 

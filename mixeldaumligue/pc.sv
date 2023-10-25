@@ -1,3 +1,4 @@
+// Contador de programa
 module pc(
 	input logic clk,
 	input logic rst,
