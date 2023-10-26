@@ -6,7 +6,7 @@ module reg_b(
 	output logic [7:0] out
 );
 
-logic [7:0] reg_value;  // Renamed from reg_b to reg_value
+logic [7:0] reg_value; 
 
 always_ff @(posedge clk or posedge rst) begin
 	if (rst) begin

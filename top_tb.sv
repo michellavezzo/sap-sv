@@ -1,4 +1,18 @@
-module top_tb;
+module top_tb(
+		output logic hlt,
+		output logic pc_inc,
+		output logic pc_en,
+		output logic mar_load,
+		output logic mem_en,
+		output logic ir_load,
+		output logic ir_en,
+		output logic a_load,
+		output logic a_en,
+		output logic b_load,
+		output logic adder_sub,
+		output logic adder_en,
+		input  logic [7:0] ir_out
+);
 
 initial begin
 	$dumpfile("top_tb.vcd");
@@ -7,7 +21,7 @@ initial begin
 	#1 rst = 0;
 end
 
-logic [4:0] bus_en = {pc_en, mem_en, ir_en, a_en, adder_en};
+wire [4:0] bus_en = {pc_en, mem_en, ir_en, a_en, adder_en};
 logic [7:0] bus;
 
 always_comb begin
@@ -30,7 +44,7 @@ initial begin
 end
 
 logic clk;
-logic hlt;
+//logic hlt;
 logic rst;
 
 clock clock_inst(
@@ -39,8 +53,8 @@ clock clock_inst(
 	.clk_out(clk)
 );
 
-logic pc_inc;
-logic pc_en;
+//logic pc_inc;
+//logic pc_en;
 logic [7:0] pc_out;
 pc pc_inst(
 	.clk(clk),
@@ -49,8 +63,8 @@ pc pc_inst(
 	.out(pc_out)
 );
 
-logic mar_load;
-logic mem_en;
+//logic mar_load;
+//logic mem_en;
 logic [7:0] mem_out;
 memory mem_inst(
 	.clk(clk),
@@ -60,8 +74,8 @@ memory mem_inst(
 	.out(mem_out)
 );
 
-logic a_load;
-logic a_en;
+//logic a_load;
+//logic a_en;
 logic [7:0] a_out;
 reg_a reg_a_inst(
 	.clk(clk),
@@ -71,7 +85,7 @@ reg_a reg_a_inst(
 	.out(a_out)
 );
 
-logic b_load;
+//logic b_load;
 logic [7:0] b_out;
 reg_b reg_b_inst(
 	.clk(clk),
@@ -81,8 +95,8 @@ reg_b reg_b_inst(
 	.out(b_out)
 );
 
-logic adder_sub;
-logic adder_en;
+//logic adder_sub;
+//logic adder_en;
 logic [7:0] adder_out;
 adder adder_inst(
 	.a(a_out),
@@ -91,9 +105,9 @@ adder adder_inst(
 	.out(adder_out)
 );
 
-logic ir_load;
-logic ir_en;
-logic [7:0] ir_out;
+//logic ir_load;
+//logic ir_en;
+//logic [7:0] ir_out;
 ir ir_inst(
 	.clk(clk),
 	.rst(rst),
