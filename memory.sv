@@ -9,7 +9,6 @@ module memory(
 logic [3:0] mar;
 logic [7:0] ram[0:15];
 
-// Example inline initialization:
 initial begin
     ram[0]  = 8'h00;
     ram[1]  = 8'h01;

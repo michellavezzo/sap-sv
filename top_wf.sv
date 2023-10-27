@@ -80,7 +80,7 @@ module top_wf(
         .out(ir_out)
     );
 	
-	assign local_hlt = hlt_in | controller_hlt; // local_hlt will be true if either hlt_in or controller_hlt is true
+	assign local_hlt = hlt_in | controller_hlt;
     // Controller
     controller controller_inst (
         .clk(clk),
@@ -88,6 +88,5 @@ module top_wf(
         .opcode(ir_out[7:4]),
         .out({controller_hlt, pc_inc, pc_en, mar_load, mem_en, ir_load, ir_en, a_load, a_en, b_load, adder_sub, adder_en})
     );
-//	 assign local_hlt = hlt_in;
 
 endmodule

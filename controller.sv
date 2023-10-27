@@ -11,7 +11,7 @@ module controller(
 parameter int SIG_HLT       = 11; // Sinal de parada (Halt execution)
 parameter int SIG_PC_INC    = 10; // Incremento do PC (PC increment)
 parameter int SIG_PC_EN     = 9;  // Adicionar valor de PC no Barramento (put the pc value to bus)
-parameter int SIG_MEM_LOAD  = 8;  // (Registrador de Endereço da Memória)Carregar endereço de memoria vindo do PC 
+parameter int SIG_MEM_LOAD  = 8;  // MAR(Registrador de Endereço da Memória)Carregar endereço de memoria vindo do PC 
 parameter int SIG_MEM_EN    = 7;  // Adicionar valor da memória no Barramento
 parameter int SIG_IR_LOAD   = 6;  // Carregar endereço do barramento no Registrador de instruçõe
 parameter int SIG_IR_EN     = 5;  // Colocar valor do RI no barramento
@@ -22,7 +22,7 @@ parameter int SIG_ADDER_SUB = 1;  // Tipo de operação (+ ou -)
 parameter int SIG_ADDER_EN  = 0;  // Colocar valor do Adder no Barramento
 
 
-//                              opcode
+//The SAP-1 has four operation.|opcode|
 parameter logic [3:0] OP_LDA = 4'b0000; // Carrega o valor da memória no reg_a.
 parameter logic [3:0] OP_ADD = 4'b0001; // Adiciona valor da memória com o valor de reg_a e salva em reg_a
 parameter logic [3:0] OP_SUB = 4'b0010; // Subtrai valor da memória com o valor de reg_a e salva em reg_a
